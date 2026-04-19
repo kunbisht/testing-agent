@@ -1,0 +1,73 @@
+# Spring Boot Application Configuration
+spring:
+  application:
+    name: testing-agent
+  
+  # Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# Management/Actuator Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+  info:
+    env:
+      enabled: true
+
+# Application Information
+info:
+  app:
+    name: Testing Agent
+    description: Java Spring Boot microservice with minimal structure
+    version: 1.0.0-SNAPSHOT
+    encoding: UTF-8
+    java:
+      version: 17
+
+# Logging Configuration
+logging:
+  level:
+    com.example.testingagent: INFO
+    org.springframework: WARN
+    org.hibernate: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+---
+# Development Profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+logging:
+  level:
+    com.example.testingagent: DEBUG
+    org.springframework.web: DEBUG
+
+server:
+  port: 8081
+
+---
+# Production Profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+logging:
+  level:
+    com.example.testingagent: WARN
+    org.springframework: ERROR
+
+server:
+  port: 8080
