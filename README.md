@@ -1,6 +1,6 @@
 # testing-agent
 
-**Branch: main**
+**Branch: feature/feature-1**
 
 Java Spring Boot microservice with minimal structure.
 
@@ -13,7 +13,26 @@ This repository contains a Java Spring Boot microservice template with minimal s
 - **feature/***: Feature development branches
 
 ## Getting Started
-Application code is located in feature branches. Check out the appropriate feature branch to see the implementation.
+
+### Prerequisites
+- Java 17 or higher
+- Maven 3.8+
+
+### Running the Application
+```bash
+# Clone the repository
+git clone https://github.com/kunbisht/testing-agent.git
+cd testing-agent
+git checkout feature/feature-1
+
+# Build and run
+mvn clean install
+mvn spring-boot:run
+```
+
+### API Endpoints
+- `GET /api/health` - Health check endpoint
+- `GET /api/hello` - Simple hello world endpoint
 
 ## Technology Stack
 - **Language**: Java
@@ -31,7 +50,27 @@ Application code is located in feature branches. Check out the appropriate featu
 ├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
-└── SECURITY.md
+├── SECURITY.md
+├── pom.xml
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── example/
+│   │   │           └── testingagent/
+│   │   │               ├── TestingAgentApplication.java
+│   │   │               └── controller/
+│   │   │                   └── HelloController.java
+│   │   └── resources/
+│   │       └── application.yml
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── testingagent/
+│                       └── TestingAgentApplicationTests.java
+└── docs/
+    └── api.md
 ```
 
 ## License
